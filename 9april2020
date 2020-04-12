@@ -51,6 +51,7 @@ ls /home/B/
 
 #Task 4
 #Run loop for 10 seconds and save ouput of cal command in file and also count number of iterations
+#Save and run the python script
 ```
 import time
 import os
