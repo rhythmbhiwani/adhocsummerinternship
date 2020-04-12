@@ -1,0 +1,65 @@
+#Task 1
+#Creating tree directory
+```
+mkdir -p a/{b/{d/{i/m/z,j/l/z},e/h/l/z},c/{f/h/l/z,g/k/l/z}}
+```
+
+
+
+#Task 2
+#Creating a new user and giving only date permission to it
+```
+sudo useradd -m rhythm
+sudo passwd rhythm
+sudo chsh -s /bin/rbash rhythm
+sudo mkdir /home/rhythm/bin
+sudo chmod 755 /home/rhythm/bin
+sudo echo "PATH=$HOME/bin" >> /home/rhythm/.bashrc
+sudo echo "export PATH" >> /home/rhythm/.bashrc
+sudo ln -s /bin/date /home/rhythm/bin/
+sudo chattr +i /home/rhythm/.bashrc
+
+sudo chmod -x /usr/bin/date
+```
+
+
+#Task 3
+#Creating 2 users and copying data between them without using sudo
+```
+sudo apt install openssh-server -y
+sudo ufw allow ssh
+sudo useradd -m A
+sudo useradd -m B
+sudo passwd A
+sudo passwd B
+su - A
+mkdir folderA
+touch fileA
+exit
+su - B
+mkdir folderB
+touch fileB
+exit
+su - A
+scp fileA B@localhost:/home/B/
+scp -r folderA B@localhost:/home/B/
+exit
+ls /home/B/
+```
+
+
+
+#Task 4
+#Run loop for 10 seconds and save ouput of cal command in file and also count number of iterations
+```
+import time
+import os
+
+millis = int(round(time.time() * 1000))
+count = 0
+while int(round(time.time() * 1000))<=millis+10000:
+	count += 1
+	os.system("cal >> /tmp/a.txt")
+os.system("echo 'Count: {}' >> /tmp/a.txt".format(count))
+os.system("cat /tmp/a.txt")
+```
