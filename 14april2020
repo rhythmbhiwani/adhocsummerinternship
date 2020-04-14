@@ -19,3 +19,20 @@ os.system("sudo docker ps")
 
 
 #Task 2
+#Store names and created date of all containters in text file
+```
+docker ps -a --format "table {{.Names}}\t{{.CreatedAt}}" > task2.txt
+cat task2.txt
+```
+
+#Task 3
+#Create custom docker image containing firefox as parent image
+
+
+
+#Task 4
+#Store name, cpu useage and memory usage of all containers in a files named "Ram.txt"
+```
+docker stats --all --no-stream --format "table {{.Name}}\t{{.CPUPerc}}\t{{.MemUsage}}\t{{.MemPerc}}" > Ram.txt
+cat Ram.txt
+```
