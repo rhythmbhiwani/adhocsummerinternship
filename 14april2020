@@ -1,0 +1,21 @@
+#Task 1
+#Creating 100 containers 25 each of alpine, fedora, centos, java which runs forever
+#Using Python Script
+```
+import os
+
+for num in range(1,101):
+	if num<=25:
+		os.system("sudo docker run -d --restart unless-stopped --name adhocnw{} alpine ping youtube.com".format(num))
+	elif num<=50:
+		os.system("sudo docker run -itd --restart unless-stopped --name adhocnw{} fedora".format(num))
+	elif num<=75:
+		os.system("sudo docker run -d --restart unless-stopped --name adhocnw{} centos ping adhocnw.org".format(num))
+	elif num<=100:
+		os.system("sudo docker run -itd --restart unless-stopped --name adhocnw{} java".format(num))
+os.system("sudo docker ps")
+```
+
+
+
+#Task 2
