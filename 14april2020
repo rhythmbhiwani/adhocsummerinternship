@@ -25,6 +25,9 @@ docker ps -a --format "table {{.Names}}\t{{.CreatedAt}}" > task2.txt
 cat task2.txt
 ```
 
+
+
+
 #Task 3
 #Create custom docker image containing firefox as parent image
 #Dockerfile
