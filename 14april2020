@@ -27,6 +27,25 @@ cat task2.txt
 
 #Task 3
 #Create custom docker image containing firefox as parent image
+#Dockerfile
+```
+FROM ubuntu
+RUN apt-get update
+RUN apt-get install -y firefox
+RUN groupadd -g 1000 rhythm
+RUN useradd -d /home/rhythm -s /bin/bash -m rhythm -u 1000 -g 1000
+USER rhythm
+ENV HOME /home/rhythm
+CMD /usr/bin/firefox
+```
+#Build Command
+```
+sudo docker build -t rhythmguifirefox .
+```
+#Run Command
+```
+sudo docker run -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=$DISPLAY -h $HOSTNAME -v $HOME/.Xauthority:/home/rhythm/.Xauthority rhythmguifirefox
+```
 
 
 
